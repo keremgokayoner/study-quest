@@ -1,0 +1,70 @@
+{
+  "name": "study-quest",
+  "version": "0.1.0",
+  "description": "Oyunlaştırılmış, erteleme karşıtı çalışma planlayıcı (Gemini AI destekli)",
+  "main": "electron/main.js",
+  "scripts": {
+    "dev": "concurrently -k \"vite\" \"wait-on http://localhost:5173 && cross-env NODE_ENV=development electron .\"",
+    "build": "vite build",
+    "start": "vite build && electron .",
+    "dist": "vite build && electron-builder"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "recharts": "^2.12.7",
+    "zustand": "^4.5.5",
+    "canvas-confetti": "^1.9.3"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.3.1",
+    "concurrently": "^8.2.2",
+    "cross-env": "^7.0.3",
+    "electron": "^31.3.1",
+    "vite": "^5.4.2",
+    "wait-on": "^7.2.0",
+    "electron-builder": "^24.13.3"
+  },
+  "productName": "Study Quest",
+  "author": "Study Quest",
+  "build": {
+    "appId": "com.studyquest.app",
+    "productName": "Study Quest",
+    "files": [
+      "dist/**",
+      "electron/**",
+      "package.json"
+    ],
+    "directories": {
+      "output": "release"
+    },
+    "win": {
+      "target": "nsis"
+    },
+    "mac": {
+      "target": "dmg",
+      "category": "public.app-category.education"
+    },
+    "linux": {
+      "target": [
+        "AppImage"
+      ],
+      "category": "Education"
+    }
+  },
+  "license": "MIT",
+  "engines": {
+    "node": ">=18"
+  },
+  "keywords": [
+    "study",
+    "planner",
+    "procrastination",
+    "gamification",
+    "electron",
+    "react",
+    "gemini",
+    "pomodoro",
+    "spaced-repetition"
+  ]
+}
